@@ -6,7 +6,11 @@ module VoteSmart
     def self.get_by_office_state office_id, state_id = "NA", election_year = nil
       request("Candidates.getByOfficeState", "officeId" => office_id, "stateId" => state_id, "electionYear" => election_year)
     end
-    
+
+    def self.get_by_office_type_state office_type_id, state_id = "NA", election_year = nil
+      request("Candidates.getByOfficeTypeState", "officeTypeId" => office_type_id, "stateId" => state_id, "electionYear" => election_year)
+    end
+
     #Searches for candidates with exact lastname matches
     def self.get_by_lastname last_name, election_year = nil
       request("Candidates.getByLastname", "lastName" => last_name, "electionYear" => election_year)

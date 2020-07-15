@@ -38,6 +38,15 @@ module VoteSmart
     def self.get_candidate_rating candidate_id, sig_id, &block
       request("Rating.getCandidateRating", {"candidateId" => candidate_id, "sigId" => sig_id}, &block)
     end
-    
+
+    #  Returns all ratings (scorecards) by a SIG
+    def self.get_sig_ratings sig_id
+      request("Rating.getSigRatings", "sigId" => sig_id)
+    end
+
+    # Returns all candidate ratings from a scorecard by an SIG
+    def self.get_rating rating_id
+      request("Rating.getRating", "ratingId" => rating_id)
+    end
   end
 end
